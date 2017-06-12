@@ -7,6 +7,7 @@ var pastryShop = {
   initialize: function() {
     // console.log("==initialize==");
     pastryShop.activateLoginBtn();
+    pastryShop.activateLogoutBtn();
   },
   // ====== ACTIVATE LOGIN BUTTON ======
   activateLoginBtn: function () {
@@ -15,26 +16,33 @@ var pastryShop = {
       self.loginUser();
     })
   },
-  // ====== LOGIN METHOD =====
+  // ====== LOGIN USER METHOD =====
   loginUser: function() {
     // console.log("==loginUser==");
     var self = this;
     var username = $('#usernameBox').val();
     var password = $('#passwordBox').val();
     Cookies.set('username', username);
-    Cookies.get('username');
     Cookies.set('password', password);
-    Cookies.get('password');
-    if ((username && password) != "") {
-        alert("Welcome " + username);
-    } else {
-        alert("Please enter your username and password!");
-        if ((username && password) != "" && (username && password) != null) {
-            Cookies.set("username", username, 365);
-            Cookies.set('password', password, 365);
-          }
-    };
+    console.log(document.cookie);
+    // if ((username && password) != "") {
+    //     alert("Welcome " + username);
+    // } else {
+    //     alert("Please enter your username and password!");
+    //   }
+  },
+  // ====== ACTIVATE LOGOUT BUTTON ======
+  activateLogoutBtn: function () {
+    console.log("==activateLogoutBtn==");
+    var self = this;
+    $('#logoutBtn').on('click', function() {
+      Cookies.set('username', "");
+      Cookies.set('password', "");
+      console.log(document.cookie);
+    })
   }
+
+
 } //CLOSES pastryShop
 pastryShop.initialize();
 }); //CLOSES JQUERY
