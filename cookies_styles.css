@@ -1,0 +1,9 @@
+.finalCount {
+  width:30px;
+  height: 30px;
+  border: 1px solid black;
+  margin-top: 10px;
+}
+#placeOrder {
+  margin-top: 15px;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="cookies_styles.css">
+  <title>Cookies</title>
+</head>
+<body>
+<!-- ======= HEADER!!! ======= -->
+<h1>Order your pastries!</h1>
+<!-- ======= USERNAME/PASSWORD/LOGIN CONTAINER ======= -->
+<form>
+Username: <input type="text" id="usernameBox" name="usernameBox" size="10" value="asc"><br>
+Password: <input type="password" id="passwordBox" name="passwordBox" size="10" value="1234"><br>
+<input type="button" id="loginBtn" name="loginBtn" value="Login">
+<input type="button" id="logoutBtn" name="logoutBtn" value="Logout">
+</form>
+<!-- ======= PASTRIES CONTAINER ======= -->
+<div id="orderContainer">
+  <h3>Pastries</h3>
+  <!-- ===== SUGAR ===== -->
+  <div id="sugar">
+    <p>Sugar</p>
+    <input type="text" id="sugarOrder" class="orderBox" name="sugarOrder" size="3" placeholder="0">
+    <div id="sugarOrderFinal" class="finalCount"></div>
+  </div>
+  <!-- ===== LEMON ===== -->
+  <div id="lemon">
+    <p>Lemon</p>
+    <input type="text" id="lemonOrder" class="orderBox" name="lemonOrder" size="3" placeholder="0">
+    <div id="lemonOrderFinal" class="finalCount"></div>
+  </div>
+  <!-- ===== CHOCOLATE ===== -->
+  <div id="chocolate">
+    <p>Chocolate</p>
+    <input type="text" id="chocolateOrder" class="orderBox" name="chocolateOrder" size="3" placeholder="0">
+    <div id="chocolateOrderFinal" class="finalCount"></div>
+  </div>
+  <input type="button" id="placeOrder" name="placeorder" value="Place Order">
+</div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="cookies.js"></script>
+  <script type="text/javascript" src="cookies_script.js"></script>
+</body>
+
+<footer>Thank you for your order</footer>
+
+</html>
