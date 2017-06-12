@@ -1,4 +1,3 @@
-// Create a simple front-end website where users can decide how many cookies that they'd like to eat of each flavor. Once they indicate this, which could be by clicking on an item on screen or by submitted a form, store this value inside of several browser cookies, which specify the type of confectionary cookies as the key and the amount of confectionary cookies eaten so far as a value.
 $(document).ready(function() {
   console.log("jQuery ready");
 
@@ -14,6 +13,7 @@ var pastryShop = {
     var self = this;
     $('#loginBtn').on('click', function() {
       self.loginUser();
+      self.placePastryOrder();
     })
   },
   // ====== LOGIN USER METHOD =====
@@ -40,8 +40,37 @@ var pastryShop = {
       Cookies.set('password', "");
       console.log(document.cookie);
     })
-  }
+  },
+  // ===== UPDATE ORDER =====
+  updateOrderCt: function(){
+    var muffin = $('#muffinOrder').val();
+    var scone = $('#sconeOrder').val();
+    var fudge = $('#fudgeOrder').val();
+      if (Cookies.get(muffin)) {
+        var muffin = Cookies.get('muffin') + parseInt(muffin);
+      }
+      $('#muffinHistory').html(muffin);
+      Cookies.set("muffin:", muffin);
 
+      if (Cookies.get(scone)) {
+        var scone = Cookies.get('scone') + parseInt(scone);
+      }
+      $('#sconeHistory').html(scone);
+      Cookies.set("scone:", scone);
+
+      if (Cookies.get(fudge)) {
+        var fudge = Cookies.get('fudge') + parseInt(fudge);
+      }
+      $('#fudgeHistory').html(fudge);
+      Cookies.set("fudge:", fudge);
+  },
+  // ===== PLACE ORDER ======
+  placePastryOrder: function() {
+    var self = this;
+    $('#placeOrder').on('click', function(){
+      self.updateOrderCt();
+    })
+  }
 
 } //CLOSES pastryShop
 pastryShop.initialize();
