@@ -38,6 +38,9 @@ var pastryShop = {
     $('#logoutBtn').on('click', function() {
       Cookies.set('username', "");
       Cookies.set('password', "");
+      Cookies.set('muffin', 0);
+      Cookies.set('scone', 0);
+      Cookies.set('fudge', 0);
       console.log(document.cookie);
     })
   },
@@ -46,23 +49,22 @@ var pastryShop = {
     var muffin = $('#muffinOrder').val();
     var scone = $('#sconeOrder').val();
     var fudge = $('#fudgeOrder').val();
-      if (Cookies.get(muffin)) {
-        var muffin = Cookies.get('muffin') + parseInt(muffin);
+      if (Cookies.get("muffin")) {
+        var muffin = parseInt(Cookies.get("muffin")) + parseInt(muffin);
       }
+      if (Cookies.get("scone")) {
+        var scone = parseInt(Cookies.get("scone")) + parseInt(scone);
+      }
+      if (Cookies.get("fudge")) {
+        var fudge = parseInt(Cookies.get("fudge")) + parseInt(fudge);
+      }
+      Cookies.set("muffin", muffin);
+      Cookies.set("scone", scone);
+      Cookies.set("fudge", fudge);
       $('#muffinHistory').html(muffin);
-      Cookies.set("muffin:", muffin);
-
-      if (Cookies.get(scone)) {
-        var scone = Cookies.get('scone') + parseInt(scone);
-      }
       $('#sconeHistory').html(scone);
-      Cookies.set("scone:", scone);
-
-      if (Cookies.get(fudge)) {
-        var fudge = Cookies.get('fudge') + parseInt(fudge);
-      }
       $('#fudgeHistory').html(fudge);
-      Cookies.set("fudge:", fudge);
+      $('.orderBox').val(0);
   },
   // ===== PLACE ORDER ======
   placePastryOrder: function() {
